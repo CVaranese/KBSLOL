@@ -1,0 +1,21 @@
+# .gitignore: https://help.github.com/articles/ignoring-files
+
+# Node modules
+node_modules
+
+# Build
+build
+
+# YCM files
+.tern-project
+
+.notes
+
+# ide stuff
+.idea
+
+# ignore coverage files
+coverage
+
+# Yarn Error Log
+yarn-error.log

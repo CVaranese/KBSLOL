@@ -1,0 +1,46 @@
+@font-face {
+  font-family: ProximaNova-Light;
+  src: url("./Font/ProximaNova-Light.otf");
+}
+
+body {
+  font-family: ProximaNova-Light, sans-serif;
+}
+
+.appContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.predictButton {
+  height: 40px !important;
+}
+
+.title {
+  margin: 10px;
+}
+
+.button {
+  height: 10px;
+  width: 100px;
+  background-color: #36A2EB;
+  border: 0;
+  text-align: center;
+  display: flex;
+  padding: 16px;
+  margin: 8px;
+  color: #FFFFFF;
+  border-radius: 8px;
+  font-family: "proxima-nova-soft", sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  transition: box-shadow 200ms ease-out;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover {
+  cursor: pointer;
+}
