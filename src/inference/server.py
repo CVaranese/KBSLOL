@@ -9,6 +9,7 @@ app = Flask(__name__)
 def predict():
     if request.method == "POST":
         body = request.form
+        # { 'summoners': [...] }
         print(json.dumps(dict(body)))
     return json.dumps({ 'prediction': 100, 'team': 10}), 200
 
