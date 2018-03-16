@@ -34,7 +34,9 @@ const data = (state = initialState.data, { payload, response, type }) => {
     }
     case actions.FETCH_PREDICTION_SUCCESS: {
       return Object.assign({}, state, {
-        searching: false,   
+        searching: false,
+        prediction: response.data.prediction,
+        team: response.data.team,
       });
     }
     default:

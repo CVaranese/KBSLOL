@@ -27,17 +27,17 @@ app.post('/predict', (req, res) => {
   request({
     uri: `${req.query['url']}/predict`,
     method: 'post',
-    form: req.body,
+    form: {
+      data: JSON.stringify(req.body)
+    },
   }, (error, response, body) => {
     if (error) {
       res.send({
         error: 'Error calculating prediction',
       });
     } else {
-      res.send({
-        prediction: 100,
-        team: 10,
-      });
+      console.log(body);
+      res.send(body);
     }
   });
 });

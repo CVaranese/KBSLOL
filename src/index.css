@@ -33,6 +33,11 @@ body {
   margin: 10px !important;
 }
 
+.pvalue {
+  display: flex;
+  justify-content: center;
+}
+
 .title {
   margin: 10px;
 }
