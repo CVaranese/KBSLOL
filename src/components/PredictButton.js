@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { Button } from 'semantic-ui-react';
+import fetchPrediction from '../actions/fetchPrediction';
 import fetchSummoner from '../actions/fetchSummoner';
 
 class PredictButton extends Component {
@@ -12,7 +13,9 @@ class PredictButton extends Component {
   }
 
   fetchRiotData() {
-    this.props.fetchSummoner(this.props.summoner);
+    this.props.fetchSummoner(this.props.summoner).then(() => {
+      this.props.fetchPrediction(); 
+    });
   }
 
   render() {
@@ -34,6 +37,7 @@ PredictButton.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
+  fetchPrediction: PropTypes.func,
   fetchSummoner: PropTypes.func,
   riotapikey: PropTypes.string,
   summoner: PropTypes.string,
@@ -49,6 +53,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   fetchSummoner,
+  fetchPrediction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PredictButton);

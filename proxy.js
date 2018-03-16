@@ -1,6 +1,7 @@
 const express = require('express');
 const request = require('request');
 const xml2js = require('xml2js');
+const bodyParser = require('body-parser');
 const get = require('lodash/get');
 const parseString = xml2js.parseString;
 var riot_api_key = '';
@@ -14,10 +15,31 @@ if (process.argv.length === 3) {
 
 const app = express();
 
+app.use(bodyParser.json());
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
+});
+
+app.post('/predict', (req, res) => {
+  console.log(req.body);
+  request({
+    uri: `${req.query['url']}/predict`,
+    method: 'post',
+    form: req.body,
+  }, (error, response, body) => {
+    if (error) {
+      res.send({
+        error: 'Error calculating prediction',
+      });
+    } else {
+      res.send({
+        prediction: 100,
+        team: 10,
+      });
+    }
+  });
 });
 
 app.get('/summoner', (req, res) => {

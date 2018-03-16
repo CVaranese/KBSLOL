@@ -6,11 +6,13 @@ const data = (state = initialState.data, { payload, response, type }) => {
     case actions.APP_INITIALIZED_SUCCESS: {
       return Object.assign({}, state, payload);
     }
+    case actions.FETCH_PREDICTION_START:
     case actions.FETCH_SUMMONER_START: {
       return Object.assign({}, state, {
         searching: true,   
       });
     }
+    case actions.FETCH_PREDICTION_FAILURE:
     case actions.FETCH_SUMMONER_FAILURE: {
       return Object.assign({}, state, {
         searching: false,   
@@ -24,11 +26,16 @@ const data = (state = initialState.data, { payload, response, type }) => {
         });
       } else {
         return Object.assign({}, {
-          summoners: response.data,
+          summoners: Array.isArray(response.data) ? response.data : [],
           error: '',
           searching: false,
         });
       }
+    }
+    case actions.FETCH_PREDICTION_SUCCESS: {
+      return Object.assign({}, state, {
+        searching: false,   
+      });
     }
     default:
       return state;
