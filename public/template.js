@@ -1,4 +1,12 @@
 var fs = require('fs');
+var riot_api_key = '';
+
+if (process.argv.length === 3) {
+  riot_api_key = process.argv[2];
+} else {
+  console.log("Usage: ./start [RIOT_API_KEY]");
+  process.exit(1);
+}
 
 const template = `<!doctype html>
 <html lang="en">
@@ -12,7 +20,7 @@ const template = `<!doctype html>
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <link href="//cdn.muicss.com/mui-0.9.27/css/mui.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css" rel="stylesheet" type="text/css" media="screen" />
     <title>Housing Estimator</title>
   </head>
   <body>

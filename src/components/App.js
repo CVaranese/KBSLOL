@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
-import get from 'lodash/get';
-import isEmpty from 'lodash/isEmpty';
-
+import Game from './Game';
 import PredictButton from './PredictButton';
 import SearchBar from './SearchBar';
 import Title from './Title';
@@ -30,6 +27,7 @@ class App extends Component {
         <Title />
         <SearchBar update={this.updateSummoner} />
         <PredictButton summoner={this.state.summoner} />
+        <Game />
       </div>
     );
   }

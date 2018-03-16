@@ -8,6 +8,7 @@ class SearchBar extends Component {
   render() {
     return (
       <Input
+        loading={this.props.searching}
         icon='user'
         placeholder='Search...'
         onChange={(event, data) => {
@@ -20,10 +21,14 @@ class SearchBar extends Component {
 
 SearchBar.propTypes = {
   update: PropTypes.func,
+  searching: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => {
-  return {};
+  const { data: { searching } } = state;
+  return {
+    searching, 
+  };
 };
 
 const mapDispatchToProps = {};

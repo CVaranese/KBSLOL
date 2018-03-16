@@ -14,8 +14,23 @@ body {
   justify-content: center;
 }
 
+.member {
+  margin: 10px;
+}
+
+.team {
+  display: flex;
+  justify-content: center;
+}
+
+.hrstyle {
+  width: 75%;
+  border-top: 1px solid #8c8b8b;
+}
+
 .predictButton {
   height: 40px !important;
+  margin: 10px !important;
 }
 
 .title {

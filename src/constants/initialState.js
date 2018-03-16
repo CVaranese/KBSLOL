@@ -1,4 +1,8 @@
 export default {
   config: {},
-  data: {},
+  data: {
+    error: '',
+    summoners: [],
+    searching: false,
+  },
 };
