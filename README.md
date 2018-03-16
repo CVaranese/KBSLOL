@@ -14,5 +14,10 @@ node proxy.js [RIOT API Key]
 
 In a new terminal window navigate to KBSLOL
 ```
-./scripts/start
+./scripts/start [RIOT API Key]
+```
+
+In a new terminal window navigate to KBSLOL
+```
+python src/inference/server.py
 ```
